@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik's | Stocks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="assets/rubiks-logo.png" alt="Rubik's Logo">
+        </div>
+        <ul class="navigation">
+            <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+            <li><a href="#" class="active"><i class="fas fa-box"></i></a></li>
+            <li><a href="#"><i class="fas fa-cog"></i></a></li>
+            <li><a href="#"><i class="fas fa-user"></i></a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        <section class="home-section">
+            <div class="background-image">
+                <div class="dim-overlay"></div>
+            </div>
+            <div class="stocks-section">
+                <div class="stocks-container">
+                    <div class="table-container">
+                        <table id="productsTable" class="stock-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Brand</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="control-container">
+                        <div class="control">
+                            Add a Stock<br>
+                            <label for="prodId">ID:</label>
+                            <input type="text" id="prodId" value="" placeholder="">
+                            <label for="prodBrand">Brand:</label>
+                            <input type="text" id="prodBrand" value="" placeholder="">
+                            <label for="prodName">Name:</label>
+                            <input type="text" id="prodName" value="" placeholder="">
+                            <label for="prodPrice">Price:</label>
+                            <input type="text" id="prodPrice" value="" placeholder="">
+                            <label for="prodImage">Image:</label>
+                            <input type="file" id="prodImage">
+                            <label for="prodCategory">Category:</label>
+                            <select id="prodCategory">
+                                <option value="Consoles">Consoles</option>
+                                <option value="Games">Games</option>
+                                <option value="Computers">Computers</option>
+                                <option value="Phones">Phones</option>
+                                <option value="Components">Components</option>
+                                <option value="Photography">Photography</option>
+                            </select>
+                            <br>
+                            <label for="prodDescription">Description:</label>
+                            <br>
+                            <textarea type="text" id="prodDescription" value=""></textarea>
+                            <br>
+                            <button id="addProd">Add to Stock</button>
+                        </div>
+                        <div class="control">
+                            Remove a Stock<br>
+                            <label for="delProdId">ID:</label>
+                            <input type="text" id="delProdId" value="" placeholder="">
+                            <button id="deleteProd">Delete Stock</button>
+                        </div>
+                        <div class="control">
+                            Update a Stock<br>
+                            <label for="updProdId">ID:</label>
+                            <input type="text" id="updProdId" value="" placeholder="">
+                            <button id="searchProd">Search Stock</button>
+                            <br><br>
+                            <label for="updProdBrand">Brand:</label>
+                            <input type="text" id="updProdBrand" value="" placeholder="">
+                            <label for="updProdName">Name:</label>
+                            <input type="text" id="updProdName" value="" placeholder="">
+                            <br>
+                            <label for="updProdPrice">Price:</label>
+                            <input type="text" id="updProdPrice" value="" placeholder="">
+                            <label for="updProdImage">Image:</label>
+                            <input type="file" id="updProdImage">
+                            <label for="updProdCategory">Category:</label>
+                            <select id="updProdCategory">
+                                <option value="Consoles">Consoles</option>
+                                <option value="Games">Games</option>
+                                <option value="Computers">Computers</option>
+                                <option value="Phones">Phones</option>
+                                <option value="Components">Components</option>
+                                <option value="Photography">Photography</option>
+                            </select>
+                            <br>
+                            <label for="updProdDescription">Description:</label>
+                            <br>
+                            <textarea id="updProdDescription" placeholder=""></textarea>
+                            <br>
+                            <button id="updateProd">Update Stock</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBWBSH6B_WLoAecAWeMjYfWOhgLclBPh8U",
+            authDomain: "rubiks-tech.firebaseapp.com",
+            databaseURL: "https://rubiks-tech-default-rtdb.firebaseio.com",
+            projectId: "rubiks-tech",
+            storageBucket: "rubiks-tech.appspot.com",
+            messagingSenderId: "106371830991",
+            appId: "1:106371830991:web:884d798cb3bc0f7e3e53ba"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        $(document).ready(function () {
+            $("#addProd").click(function () {
+                var prodID = $("#prodId").val();
+                var prodBrand = $("#prodBrand").val();
+                var prodName = $("#prodName").val();
+                var prodPrice = $("#prodPrice").val();
+                var prodCategory = $("#prodCategory").val();
+                var prodDescription = $("#prodDescription").val();
+                var file = document.getElementById('prodImage').files[0];
+
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const base64Image = event.target.result;
+                    db.ref("Products/product" + prodID).set({
+                        productBrand: prodBrand,
+                        productName: prodName,
+                        productPrice: prodPrice,
+                        productCategory: prodCategory,
+                        productDescription: prodDescription,
+                        productImage: base64Image,
+                    })
+                        .then(() => {
+                            alert("Successful");
+                            location.reload();
+                        })
+                        .catch((error) => {
+                            console.log("Error:", error);
+                        });
+                };
+
+                reader.readAsDataURL(file);
+            });
+
+            $("#deleteProd").click(function () {
+                var prodID = $("#delProdId").val();
+
+                db.ref("Products/product" + prodID).remove()
+                    .then(() => {
+                        alert("Successful");
+                        location.reload();
+                    })
+                    .catch((error) => {
+                        console.log("Error:", error);
+                    });;
+            });
+
+            $("#searchProd").click(function () {
+                var prodID = $("#updProdId").val();
+                const stock = db.ref("Products/product" + prodID);
+
+                stock.once("value").then((snapshot) => {
+                    const data = snapshot.val();
+                    $("#updProdBrand").val(data.productBrand);
+                    $("#updProdName").val(data.productName);
+                    $("#updProdPrice").val(data.productPrice);
+                    $("#updProdCategory").val(data.productCategory);
+                    $("#updProdDescription").val(data.productDescription);
+                    $("#updProdImage").attr("src", data.productImage);
+                });
+            });
+
+            $("#updateProd").click(function () {
+                var prodID = $("#updProdId").val();
+                var prodBrand = $("#updProdBrand").val();
+                var prodName = $("#updProdName").val();
+                var prodPrice = $("#updProdPrice").val();
+                var prodCategory = $("#updProdCategory").val();
+                var prodDescription = $("#updProdDescription").val();
+                var prodImage = $("#updProdImage").attr("src");
+
+                db.ref("Products/product" + prodID).update({
+                    productBrand: prodBrand,
+                    productName: prodName,
+                    productPrice: prodPrice,
+                    productCategory: prodCategory,
+                    productDescription: prodDescription,
+                    productImage: prodImage
+                })
+                    .then(() => {
+                        alert("Successful");
+                        location.reload();
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            });
+
+            const productsRef = db.ref("Products");
+
+            productsRef.on("value", snapshot => {
+                const productsTable = document.getElementById("productsTable").getElementsByTagName('tbody')[0];
+                productsTable.innerHTML = '';
+
+                snapshot.forEach(childSnapshot => {
+                    const productData = childSnapshot.val();
+
+                    const newRow = productsTable.insertRow();
+                    newRow.innerHTML = `
+      <td>${childSnapshot.key}</td>
+      <td>${productData.productBrand}</td>
+      <td>${productData.productName}</td>
+      <td>${productData.productPrice}</td>
+      <td>${productData.productCategory}</td>
+      <td>${productData.productDescription}</td>
+      <td><img src="${productData.productImage}" width="50" height="50" alt="Product Image"></td>
+    `;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,414 @@
+@font-face {
+  font-family: 'Oxanium';
+  src: url('Oxanium/Oxanium-VariableFont_wght.ttf') format('ttf'),
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Oxanium';
+}
+
+.sidebar {
+  width: 80px;
+  background-color: rgb(20, 24, 40, 0.5);
+  color: #fff;
+  height: 95vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  overflow-y: auto;
+  z-index: 1;
+  box-shadow: 0px 0px 15px black;
+  border-radius: 15px;
+}
+
+.logo {
+  margin: 20px 10px;
+  text-align: center;
+}
+
+.logo img {
+  max-width: 100%;
+  box-shadow: 0px 0px 2px white;
+}
+
+.navigation {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.navigation li {
+  margin-bottom: 10px;
+}
+
+.navigation a {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  background-color: #ff8c00;
+  box-shadow: 0 0 10px #ff8c00;
+}
+
+.navigation i {
+  width: 15px;
+}
+
+.active {
+  background-color: #ff8c00;
+  box-shadow: 0 0 10px #ff8c00;
+}
+/*end of sidebar styling*/
+
+
+
+/*start of widgets styling*/
+.home-section {
+  position: relative;
+}
+
+.background-image {
+  background-image: url('wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.dim-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.widgets {
+  background-color: rgb(20, 24, 40, 0.5);
+  color: #fff;
+  height: 95vh;
+  width: 90%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 20px 120px;
+  box-shadow: 0px 0px 15px black;
+  border-radius: 15px;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.widget {
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 2px black;
+  overflow: hidden;
+}
+
+.greeting-widget {
+  height: 250px;
+  margin: 40px 0 0 40px;
+  grid-column: span 2;
+  grid-row: span 1;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgb(4, 15, 50, 0.5));
+  box-shadow: none;
+  border: none;
+  overflow: visible;
+}
+
+.digital-clock-widget {
+  height: 70px;
+  margin: 40px 0 0 0;
+  width: 60%;
+  grid-column: span 1;
+  grid-row: span 1;
+  background-color: rgb(20, 24, 40, 0.8);
+}
+
+.purchase-analytics-widget {
+  height: 200px;
+  margin: 0 0 0 40px;
+  grid-column: span 1;
+  grid-row: span 1;
+  background-color: rgb(20, 24, 40, 0.8);
+}
+
+.website-visit-widget {
+  height: 200px;
+  grid-column: span 1;
+  grid-row: span 1;
+  background-color: rgb(20, 24, 40, 0.8);
+}
+
+.digital-calendar-widget {
+  height: 85%;
+  margin: 0;
+  position: relative;
+  top: -75%;
+  width: 60%;
+  grid-column: span 1;
+  grid-row: span 1;
+  background-color: rgb(20, 24, 40, 0.8);
+}
+
+.schedule-widget {
+  grid-column: span 1;
+  grid-row: span 1;
+  position: relative;
+  top: -85%;
+  width: 60%;
+  height: 160px;
+  background-color: rgb(20, 24, 40, 0.8);
+}
+
+/*greeting widget*/
+.greeting-content {
+  display: flex;
+}
+
+.greeting-text {
+  margin: 20px 15px;
+  height: 14em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.greeting-text h3 {
+  margin: 0;
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+.greeting-text p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.goToProfileBtn {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #ff8c00;
+  width: 8em;
+  cursor: pointer;
+}
+
+.goToProfileBtn:hover{
+  box-shadow: 0 0 10px #ff8c00;
+}
+
+.greeting-image img {
+  max-width: 100%;
+  height: 350px;
+  position: relative;
+  top: -20%;
+}
+
+/*clock widget*/
+.clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.clock-display {
+  font-size: 2.5em;
+  color: #fff;
+  text-shadow: 0 0 5px black;
+}
+
+/*calendar widget*/
+.calendar {
+  text-align: center;
+  text-shadow: 0 0 5px black;
+}
+
+.calendar-title {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-cell {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.empty-cell {
+  visibility: hidden;
+}
+
+.current-day {
+  background-color: #ff8c00;
+  font-weight: bold;
+}
+
+/*purchase-analytics-widget*/
+.chart-title {
+  font-size: 15px;
+  margin: 0 0 10px 0;
+}
+
+.chart-container {
+  height: 90%;
+}
+
+/*schedule-widget*/
+.schedule-title {
+  font-size: 1.1em;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.schedule-list {
+  font-size: 0.9em;
+  list-style: none;
+  padding: 0;
+}
+
+.schedule-list li {
+  display: flex;
+  align-items: center;
+  margin: 0 0 5px 0;
+}
+
+.schedule-date {
+  background-color: #e67e22;
+  padding: 7px;
+  margin: 2px 5px;
+  border-radius: 5px;
+}
+
+.schedule-event {
+  color: rgba(255,255,255, 0.4);
+}
+/*end of widgets stylings*/
+
+
+
+/*start of stocks.html styling*/
+.stocks-section {
+  background-color: rgb(20, 24, 40, 0.5);
+  color: #fff;
+  height: 95vh;
+  width: 90%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 20px 120px;
+  box-shadow: 0px 0px 15px black;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.stocks-container{
+  display: flex;
+}
+
+.table-container{
+  max-height: 600px;
+  max-width: 650px;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 25px;
+  font-size: 10px;
+}
+
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stock-table th,
+.stock-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.stock-table th:first-child,
+.stock-table td:first-child {
+  width: 10%;
+}
+
+.stock-table th:nth-child(7),
+.stock-table td:nth-child(7) {
+  width: 10%;
+}
+
+.stock-table th:last-child,
+.stock-table td:last-child {
+  width: 10%;
+}
+
+.control-container{
+  font-size: 10px;
+  width: 50%;
+}
+
+.control{
+  background-color: rgba(0, 0, 40, 0.5);
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+}
+.control button{
+  padding: 8px 16px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.control button:hover{
+  background-color: #ff8c00;
+  box-shadow: 0 0 10px #ff8c00;
+}
+.control input,select{
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+#prodImage, #updProdImage{
+  width: 120px;
+}
+#prodDescription, #updProdDescription {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  height: 30px;
+  width: 300px;
+  resize: none;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rubik's Admin Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500&display=swap" rel="stylesheet">
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="assets/rubiks-logo.png" alt="Rubik's Logo">
+    </div>
+    <ul class="navigation">
+      <li><a href="#" class="active"><i class="fas fa-home"></i></a></li>
+      <li><a href="stocks.html"><i class="fas fa-box"></i></a></li>
+      <li><a href="#"><i class="fas fa-cog"></i></a></li>
+      <li><a href="#"><i class="fas fa-user"></i></a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <section class="home-section">
+      <div class="background-image">
+        <div class="dim-overlay"></div>
+      </div>
+      <div class="widgets">
+        <div class="greeting-widget widget">
+          <div class="greeting-content">
+            <div class="greeting-text">
+              <h3>Hi, User.</h3>
+              <p>Welcome back, Administrator. Empower with innovation and excellence!<br><br>
+                “Innovation distinguishes between a leader and a follower.” - Steve Jobs</p>
+              <button class="goToProfileBtn">Go to Profile</button>
+            </div>
+            <div class="greeting-image">
+              <img src="assets/rocket.png">
+            </div>
+          </div>
+        </div>
+
+        <div class="digital-clock-widget widget">
+          <div class="clock">
+            <h2 class="clock-display"></h2>
+          </div>
+        </div>
+
+        <div class="purchase-analytics-widget widget">
+          <h2 class="chart-title">Monthly Earnings</h2>
+          <div class="chart-container">
+            <canvas id="earnings-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="website-visit-widget widget">
+          <h2 class="chart-title">Online Analytics</h2>
+          <div class="chart-container">
+            <canvas id="visits-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="digital-calendar-widget widget">
+          <div class="calendar">
+            <h2 class="calendar-title"></h2>
+            <div class="calendar-grid"></div>
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div class="schedule-widget widget">
+          <h2 class="schedule-title">Upcoming Schedule</h2>
+          <ul class="schedule-list">
+            <li>
+              <span class="schedule-date">Dec 12</span>
+              <span class="schedule-event">Meeting with Stakeholders</span>
+            </li>
+            <li>
+              <span class="schedule-date">Dec 19</span>
+              <span class="schedule-event">Office Christmas Party</span>
+            </li>
+            <li>
+              <span class="schedule-date">Dec 31</span>
+              <span class="schedule-event">Start of Year Sale</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script/clock.js"></script>
+  <script src="script/calendar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script/purchase-analytics.js"></script>
+  <script src="script/visits-analytics.js"></script>
+</body>
+
+</html>
