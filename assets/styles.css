@@ -412,3 +412,77 @@ body {
   width: 300px;
   resize: none;
 }
+/*profile.html styling */
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(20, 24, 40, 0.8);
+  color: #fff;
+  height: 70vh;
+  width: 38%;
+  box-shadow: 0px 0px 15px black;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 100px;
+}
+
+.profile-image {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: -150px;
+  margin-bottom: -10px;
+  border: 5px solid #ff8c00;
+}
+
+.profile-info {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  margin-bottom: -50px;
+}
+
+.profile-info h2 {
+  font-size: 28px;
+  color: #ff8c00;
+  margin-bottom: -5px;
+}
+
+.profile-info p {
+  text-align: left;
+  font-size: 20px;
+  margin-bottom: -5px;
+}
+
+
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff8c00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+
